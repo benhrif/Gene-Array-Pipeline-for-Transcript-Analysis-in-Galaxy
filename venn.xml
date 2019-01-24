@@ -1,0 +1,24 @@
+<tool id="venn" name="VennDiagram">
+ 
+      <description> Gene lists intersection</description>
+      <command interpreter="Rscript">venn.R $list1 $list2 $list3 $list4 $venn</command>
+      <inputs>
+	<param name="list1" type="data" format="tabular" label="ListSelected1" />
+	<param name="list2" type="data" format="tabular" label="ListSelected2" />
+	<param name="list3" type="data" format="tabular" label="ListSelected3" optional="true" />
+	<param name="list4" type="data" format="tabular" label="ListSelected4" optional="true" /> 
+      </inputs>
+      <outputs>
+      	 <data format="png" name="venn"   label="VennDiagramm.png"   from_work_dir="venn.png" /> 
+      	 <data format="tabular" name="intersection"   label="Intersection.txt"   from_work_dir="Intersection.txt" />  
+      </outputs>
+	
+<help>
+
+**What it does**
+
+This tool draws a venn diagram and gives a list of genes in common among input lists (a minimum of two lists).
+Inputs: from 2 to 4 lists of selected genes from diffrent genes section methods
+
+      </help>
+</tool>

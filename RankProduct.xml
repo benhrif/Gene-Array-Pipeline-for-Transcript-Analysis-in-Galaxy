@@ -1,0 +1,38 @@
+<tool id="RankProduct" name="RankProduct">
+ 
+      <description> Rank Product</description>
+      <command interpreter="Rscript">RankProduct.R $ExpressionMatrix $DesignMatrix $PFP $__tool_directory__ $SelectedListRankProduct $RankProductPlot</command>
+    <inputs>
+       <param  name="ExpressionMatrix" type="data" label="ExpressionMatrix" />  
+       <param  name="DesignMatrix" type="data" format="txt" label="DesignMatrix" />  
+       <param  name="PFP" type="text" label="PFP" />  
+    </inputs>
+    <outputs>
+       <data type="data" format="tabular" name="SelectedListRankProduct"   label="SelectedListRankProduct.txt"  from_work_dir="SelectedListRankProduct.txt" /> 
+	     <data format="pdf" name="RankProductPlot"   label="RankProductPlot.pdf"  from_work_dir="RankProductPlot.pdf" /> 
+    </outputs>
+    <help>
+
+**Description**
+
+RankProd method identifies statistically significant genes between two groups based on experimental conditions.
+
+-----
+
+**Details**
+
+Rank Product is a non-parametric method for identifying differentially expressed (up- or down- regulated) genes based on the estimated percentage of false predictions (pfp).
+
+-----
+
+**Output** 
+
+Significant gene sets.
+
+-----
+
+**References** 
+
+Breitling,  R.,  Armengaud,  P.,  Amtmann,  A.,  and Herzyk,  P.(2004) Rank Products:A simple,  yet powerful, new method to detect differentially regulated genes in replicated microarray experiments, FEBS Letter, 57383-92
+    </help>
+</tool>

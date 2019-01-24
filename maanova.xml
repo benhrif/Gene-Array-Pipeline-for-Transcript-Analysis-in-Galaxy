@@ -1,0 +1,33 @@
+<tool id="MANOVA" name="MAANOVA">
+ 
+      <description>MAANOVA MicroArray Analysis Of Variance</description>
+      <command interpreter="Rscript">maanova.R $ExpressionMatrix $DesignMatrix $PValue $FoldChange $__tool_directory__  $SelectedListManova $VolcanotPlotManova</command>
+    <inputs>
+       <param  name="ExpressionMatrix" type="data"  label="ExpressionMatrix" />  
+       <param  name="DesignMatrix" type="data" format="txt" label="DesignMatrix" />  
+       <param  name="PValue" type="text" label="PValue" />
+         <param  name="FoldChange" type="text" label="FoldChange" />
+    </inputs>
+    <outputs>
+       <data type="data" format="tabular" name="SelectedListManova" label="SelectedListManova.txt" from_work_dir="SelectedListManova.txt" /> 
+	     <data format="pdf" name="VolcanotPlotManova"   label="VolcanotPlotManova.pdf"  from_work_dir="VolcanotPlotManova.pdf" /> 
+    </outputs>
+     <help>
+
+**Description**
+
+MAANOVA method identifies statistically significant genes between two groups based on experimental conditions.
+
+-----
+
+**Output** 
+
+Significant gene sets.
+
+-----
+
+**References** 
+
+Wu, H., Kerr, M. K., Cui, X., and Churchill, G. A. (2003). MAANOVA: a software package for the analysis of spotted cDNA microarray experiments. In The analysis of gene expression data (pp. 313-341). Springer New York.
+      </help>
+</tool>

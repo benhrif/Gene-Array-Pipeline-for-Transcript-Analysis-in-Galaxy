@@ -1,0 +1,57 @@
+<tool id="preprocessing" name="AffyPreprocessing">
+ 
+      <description>preprocessing</description>
+      <command interpreter="Rscript">Preprocessing.R $rawData $normalization $ppData</command>
+      <inputs>
+		 <param  name="rawData" type="data"  label="rawData" />  
+         <param  name="normalization" type="select" label="Normalization methods" >
+               <option value="quantile" selected="true">Quantile</option>
+               <option value="loess">LOESS</option>
+               <option value="scale">SCALE</option>
+               <option value="qspline">QSpline</option>
+         </param>
+      </inputs>
+      <outputs>
+	   <data type="data" name="ppData"   label="ppData.RData"       from_work_dir="ppData.RData" /> 
+      </outputs>
+<help>
+
+.. class:: warningmark
+
+Make sure that your input expression data is an ExpressionFeatureSet Object.
+
+-----
+
+**Description**
+
+Data preprocessing in this tool follows three steps: background correction, normalization and summarization.
+
+-----
+
+**Details**
+
+1. Backgound intensities are estimated by using Robust Multi-Array Average (RMA) [1] which Removes local artifacts and noise.
+2. Data normalization removes array effects with method of Quantile [2] or LOESS [3] or SCALE [4] or QSpline [5].
+3. And for summarization step, this tool provides accesses to summarize expression data on exon or gene level.
+
+-----
+
+**Output** 
+
+Gene expression matrix.
+
+-----
+
+**References** 
+
+[1] Irizarry, R. A., Hobbs, B., Collin, F., Beazer-Barclay, Y. D., Antonellis, K. J., Scherf, U., and Speed, T. P. (2003). Exploration, normalization, and summaries of high density oligonucleotide array probe level data. Biostatistics, 4(2), 249-264.
+
+[2] Bolstad, B. M., Irizarry, R. A., Åstrand, M., and Speed, T. P. (2003). A comparison of normalization methods for high density oligonucleotide array data based on variance and bias. Bioinformatics, 19(2), 185-193.
+
+[3] Dutoit, S., Yang, Y. H., Callow, M. J., and Speed, T. P. Statistical methods for identifying genes with differential expression in replicated cDNA microarray experiments. Stat. Sin.
+
+[4] Yang, Y. H., Dudoit, S., Luu, P., Lin, D. M., Peng, V., Ngai, J., and Speed, T. P. (2002). Normalization for cDNA microarray data: a robust composite method addressing single and multiple slide systematic variation. Nucleic acids research, 30(4), e15-e15.
+
+[5] Workman, C., Jensen, L. J., Jarmer, H., Berka, R., Gautier, L., Nielser, H. B., ... and Knudsen, S. (2002). A new non-linear normalization method for reducing variability in DNA microarray experiments. Genome biol, 3(9), 1-16.
+      </help>
+</tool>

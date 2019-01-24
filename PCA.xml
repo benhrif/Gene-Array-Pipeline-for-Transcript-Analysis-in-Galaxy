@@ -1,0 +1,18 @@
+<tool id="pca" name="PCA">
+ 
+      <description>Principal Component Analysis</description>
+      <command interpreter="Rscript">PCA.R $ExpressionSet $SelectedList  $pca</command>
+      <inputs>
+	 <param  name="ExpressionSet" type="data" label="ExpressionSet" />
+	 <param  name="SelectedList" type="data" format="tabular" label="Selected List" />
+      </inputs>
+      <outputs>
+      	 <data format="pdf" name="pca"   label="pca.pdf"   from_work_dir="pca.pdf" />  
+      </outputs>
+<help>
+
+**What is does**
+
+The PCA tool runs a Principal Components Analysis on the input selected gene expression dataset and constructs a plot of the top two principal components.
+      </help>
+</tool>

@@ -1,0 +1,23 @@
+<tool id="Dendrogramm" name="Dendrogram">
+ 
+      <description>Hierarchical Clustering</description>
+      <command interpreter="Rscript">Dendrogramm.R $ExpressionSet $SelectedList $DistMethod  $Dendrogramm</command>
+      <inputs>
+		 <param  name="ExpressionSet" type="data"  label="ExpressionSet" />
+		  <param  name="SelectedList" type="data" format="tabular" label="Selected List" />
+         <param  name="DistMethod" type="select" label="the distance measure to be used" >
+               <option value="correlation" selected="true">Correlation</option>
+               <option value="abscor">abscor</option>
+               <option value="uncentered">uncentered</option>
+         </param>
+      </inputs>
+      <outputs>
+       <data format="pdf" name="Dendrogramm"   label="Dendrogramm.pdf"   from_work_dir="Dendrogramm.pdf" />  
+      </outputs>
+<help>
+**What it does**
+
+This hierarchical cluster analysis generates a dendrogram that contains clusters. These show the similarities in function of the distance matrix calculated by the data. It offers detailed information on the relationships between individuals and therefore often used in the analysis of biochips.
+
+      </help>
+</tool>

@@ -1,0 +1,40 @@
+<tool id="SAM" name="SAM method">
+ 
+      <description> Significance Analysis of Microarrays</description>
+      <command interpreter="Rscript">SAM.R $ExpressionMatrix $DesignMatrix $delta $__tool_directory__ $SelectedListSAM $SAMPlot</command>
+    <inputs>
+	<param  name="ExpressionMatrix" type="data"  label="ExpressionMatrix" />  
+       <param  name="DesignMatrix" type="data" format="txt" label="DesignMatrix" />  
+       <param  name="delta" type="text" label="Delta" />  
+    </inputs>
+    <outputs>
+       <data type="data" format="tabular" name="SelectedListSAM"   label="SelectedListSAM.txt"  from_work_dir="SelectedListSAM.txt" /> 
+	     <data format="pdf" name="SAMPlot"   label="SAMPlot.pdf"  from_work_dir="SAMPlot.pdf" /> 
+    </outputs>
+     <help>
+
+**Description**
+
+SAM method identifies statistically significant genes between two groups based on experimental conditions.
+
+-----
+
+**Details**
+
+Significance Analysis of Microarrays (SAM) is a statistical thechnique for determining whether changes in gene expression are statistically significant.
+
+-----
+
+**Output** 
+
+Significant gene sets.
+
+-----
+
+**References** 
+
+[1] Zhang, S. (2007). A comprehensive evaluation of SAM, the SAM R-package and a simple modification to improve its performance. BMC bioinformatics, 8(1), 230.
+
+[2] Chu, G., Li, J., Narasimhan, B., Tibshirani, R., and Tusher, V. (2001). Significance Analysis of Microarrays Users Guide and Technical Document.
+      </help>
+</tool>

@@ -1,0 +1,35 @@
+<tool id="Ttest" name="t-test/FoldChange">
+ 
+  <description> Student's t-test And Fold Change</description>
+  <command interpreter="Rscript">TTest.R $ExpressionMatrix $DesignMatrix $PValue $FoldChange $__tool_directory__ $SelectedListTtest 
+</command>
+  <inputs>
+	<param  name="ExpressionMatrix" type="data" label="ExpressionMatrix" />  
+       <param  name="DesignMatrix" type="data" format="txt" label="DesignMatrix" />  
+       <param  name="PValue" type="text" label="PValue" />
+       <param  name="FoldChange" type="text" label="FoldChange" />  
+  </inputs>
+  <outputs>
+    <data type="data" format="tabular" name="SelectedListTtest"   label="SelectedListTtest.txt"  from_work_dir="SelectedListTtest.txt" /> 
+    <data format="pdf" name="VolcanotPlot"   label="VolcanotPlot.pdf"  from_work_dir="VolcanotPlot.pdf" /> 
+  </outputs>
+    <help>
+
+**Description**
+
+t-test/FoldChange method identifies statistically significant genes between two groups based on experimental conditions.
+
+-----
+
+**Details**
+
+t-test/foldChange combine two thechniques (Student's t-test and fold change) for determining whether changes in gene expression are statistically significant. It allows to select significant gene sets based on both t-test pvalue and fold change.
+
+-----
+
+**Output** 
+
+Significant gene sets.
+
+      </help>
+</tool>

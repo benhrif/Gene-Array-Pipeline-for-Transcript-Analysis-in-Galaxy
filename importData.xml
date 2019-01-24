@@ -1,0 +1,26 @@
+<tool id="importData" name="importData">
+ 
+      <description>from your computer</description>
+      <command interpreter="Rscript">importData.R $folder $rawData </command>
+      <inputs>
+         <param  name="folder" type="text" label="Rdata source"/> 
+      </inputs>
+      <outputs>
+       <data type="data"  name="rawData"  label="rawData.rdata"       from_work_dir="rawData.rdata" /> 
+      </outputs>
+	  <help>
+
+.. class:: warningmark
+
+Make sure that "your cel path" is the directory where you put your CEL files.
+
+-----
+
+**Dataset formats**
+
+The input must be CEL files.
+The output is an ExpressionFeatureSet Object.
+
+
+      </help>
+</tool>

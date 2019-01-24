@@ -1,0 +1,27 @@
+<tool id="heatmap" name="Heatmap">
+ 
+      <description>Hierarchical Clustering</description>
+      <command interpreter="Rscript">heatmap.R $ExpressionSet $SelectedList $DistMethod  $heatmap</command>
+      <inputs>
+		 <param  name="ExpressionSet" type="data"  label="ExpressionSet" />
+		  <param  name="SelectedList" type="data" format="tabular" label="Selected List" />
+         <param  name="DistMethod" type="select" label="the distance measure to be used" >
+               <option value="Cosine" selected="true">Cosinus</option>
+               <option value="euclidean">euclidean</option>
+               <option value="maximum">maximum</option>
+               <option value="manhattan">manhattan</option>
+         </param>
+      </inputs>
+      <outputs>
+       <data format="pdf" name="heatmap"   label="heatmap.pdf"   from_work_dir="heatmap.pdf" />  
+      </outputs>
+<help>
+
+
+**What it does**
+
+This tool uses the 'heatmap' function from R statistical package to draw heatmap using gene Expression dataset and list o Selected gene.
+
+
+      </help>
+</tool>

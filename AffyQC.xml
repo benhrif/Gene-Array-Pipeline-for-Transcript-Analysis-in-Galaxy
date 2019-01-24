@@ -1,0 +1,33 @@
+<tool id="AffyQC" name="AffyQC">
+ 
+      <description>Quality Control of your Data</description>
+      <command interpreter="Rscript">AffyQC.R $data1 $data2 $AffyQCPlots</command>
+      <inputs>
+         <param  name="data1" type="data"  label="raw Data"/>
+		 <param  name="data2" type="data"  label="ppData source"/>
+      </inputs>
+
+      <outputs>
+       <data format="pdf"   name="AffyQCPlots" label="AffyQCPlots.pdf"  from_work_dir="AffyQCPlots.pdf" />  -->
+      </outputs>
+<help>
+
+.. class:: warningmark
+
+Make sure that your input expression data is an ExpressionFeatureSet Object.
+
+-----
+
+**Description**
+
+Data Quality Control in this tool allows you to evaluate the quality of your data.
+Output: PDF file containing box plots of intensities distributions.
+
+-----
+
+**References** 
+
+[1] Williamson, D. F., Parker, R. A., and Kendrick, J. S. (1989). The box plot: a simple visual method to interpret data. Annals of internal medicine, 110(11), 916-921.
+  
+      </help>
+</tool>

@@ -1,0 +1,32 @@
+<tool id="GO" name="GO">
+ 
+     <description> Biological process, molecular function, and Cellular component.</description>
+     <command interpreter="Rscript">GO.R $ExpressionSet $SelectedList $Design $__tool_directory__ $BP $GBP $MF $GMF $CC $GCC</command>
+     <inputs>
+          <param  name="ExpressionSet" type="data"  label="ExpressionSet" />
+	  <param  name="SelectedList" type="data" format="tabular" label="Selected List" />
+          <param  name="Design" type="data" format="txt" label="Design Matrix" />         
+     </inputs>
+     <outputs>
+       	<data format="pdf" name="BP"   label="Barchart_BiologicalProcesses.pdf"  from_work_dir="Barchart_BiologicalProcesses.pdf" />
+	<data format="pdf" name="GBP"   label="Arbre_BiologicalProcesses.pdf"   from_work_dir="BP_elim_weight01_5_def.pdf" />
+       	<data format="pdf" name="MF"   label="Barchart_MoleculaireFunction.pdf"  from_work_dir="Barchart_MoleculaireFunction.pdf" />
+	<data format="pdf" name="GMF"   label="Arbre_MoleculaireFunction.pdf"   from_work_dir="MF_elim_weight01_5_def.pdf" />
+       	<data format="pdf" name="CC"   label="Barchart_CellulaireComponent.pdf"  from_work_dir="Barchart_CellulaireComponent.pdf" />
+	<data format="pdf" name="GCC"   label="Arbre_CellulaireComponent.pdf"   from_work_dir="CC_elim_weight01_5_def.pdf" />  
+     </outputs>
+<help>
+
+**What it does**
+
+this tool will provide an ontology of defined terms representing each gene in the following three domains: biological process, molecular function, and Cellular component. Inputs are the gene set expressions and a list of selected genes. Outputs are a barchart and a graph of selected genes list for each domain.
+
+-----
+
+**References** 
+
+Alexa, A., Rahnenführer, J., and Lengauer, T. (2006). Improved scoring of functional groups from gene expression data by decorrelating GO graph structure. Bioinformatics, 22(13), 1600-1607.
+
+Alexa, A., and Rahnenführer, J. (2009). Gene set enrichment analysis with topGO.
+      </help>
+</tool>
